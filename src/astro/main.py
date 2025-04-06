@@ -12,7 +12,7 @@ def main() -> None:
     """Downloads the NASA picture of the day and shows it with gwenview."""
     date = datetime.datetime.now().strftime("%Y-%m-%d")
     url = "https://apod.nasa.gov/"
-    path = Path("home/pavel/Pictures/nasa") / Path(f"{date}.jpg")
+    path = Path("/home/pavel/Pictures/nasa") / Path(f"{date}.jpg")
 
     response = requests.get(url, timeout=15)
     soup = BeautifulSoup(response.text, "html.parser")
