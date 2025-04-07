@@ -1,7 +1,7 @@
 """A simple script to stay in touch with the space."""
 
 import datetime
-import subprocess
+import shutil
 from pathlib import Path
 
 import requests
@@ -13,6 +13,7 @@ def main() -> None:
     date = datetime.datetime.now().strftime("%Y-%m-%d")
     url = "https://apod.nasa.gov/"
     path = Path("/home/pavel/Pictures/nasa") / Path(f"{date}.jpg")
+    path_pod = Path("/home/pavel/Pictures/nasa/picture_of_the_day.jpg")
 
     response = requests.get(url, timeout=15)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -25,8 +26,8 @@ def main() -> None:
     with open(path, "wb") as f:
         for chunk in response:
             f.write(chunk)
-    subprocess.Popen(["gwenview", path])
-
+    shutil.copyfile(path, path_pod)
+        
 
 if __name__ == "__main__":
     main()
