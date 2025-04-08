@@ -2,6 +2,7 @@
 
 import datetime
 import shutil
+import subprocess
 from pathlib import Path
 
 import requests
@@ -21,7 +22,7 @@ def main() -> None:
     src = img.attrs["src"]
     alt = img.attrs["alt"]
 
-    print(alt)
+    subprocess.Popen(['notify-send', '--wait', alt])
     response = requests.get(f"{url}{src}", stream=True, timeout=15)
     with open(path, "wb") as f:
         for chunk in response:
