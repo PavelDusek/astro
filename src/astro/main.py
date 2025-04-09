@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# coding: utf-8
+
+
 """A simple script to stay in touch with the space."""
 
 import datetime
@@ -28,7 +32,7 @@ def main() -> None:
         for chunk in response:
             f.write(chunk)
     shutil.copyfile(path, path_pod)
-        
+
 
 if __name__ == "__main__":
     main()
