@@ -6,5 +6,7 @@ simple script to stay in touch with the space
 * Change the OnCalendar section in the astro.timer file appropriately.
 * Copy both files to ~/.config/systemd/user/
 * Run following commands:
+```console
  systemctl --user daemon-reload
  systemctl --user start astro.timer
+```
