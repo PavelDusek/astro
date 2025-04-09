@@ -1,0 +1,14 @@
+# Change the OnCalendar appropriately
+# Copy this file to ~/.config/systemd/user/
+# Run systemctl --user daemon-reload
+# Run systemctl --user start astro.timer
+
+[Unit]
+Description=astro
+
+[Timer]
+OnBootSec=15min
+OnCalendar=*-*-* 18:00:00
+
+[Install]
+WantedBy=timers.target

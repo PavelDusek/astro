@@ -1,0 +1,15 @@
+# Change the path for the script in ExecStart
+# Copy this file to ~/.config/systemd/user/
+
+
+[Unit]
+Description=Run astro.py script
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 /home/<path-to-script>/astro/main.py
+
+[Install]
+WantedBy=default.target
